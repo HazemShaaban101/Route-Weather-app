@@ -1,0 +1,187 @@
+#logo-img {
+	width: 64px;
+	height: 32px;
+}
+
+nav ul li {
+	color: white;
+	border: rgba(0, 155, 216, 0) solid 2px;
+	transition: all 0.3s;
+
+	a {
+		transition: all 0.3s;
+	}
+
+	&:hover,
+	&:has(a.active) {
+		a {
+			color: rgb(0, 154, 216) !important;
+		}
+		border: rgb(0, 155, 216) solid 2px;
+	}
+}
+nav ul li:hover {
+}
+
+body {
+	font-family: "Quicksand", sans-serif;
+	background-color: rgb(30, 32, 43);
+
+	* {
+		color: white;
+		--bs-nav-link-color: white !important;
+	}
+}
+
+.container {
+	width: 75% !important;
+	margin: auto;
+}
+
+input {
+	background-color: rgb(30, 32, 43);
+	padding: 15px;
+	border: 0;
+
+	&:focus {
+		outline: 0;
+		border: 0;
+	}
+}
+
+button {
+	padding: 10px 30px !important;
+	right: 5px;
+}
+
+.btn-terq {
+	--bs-btn-color: #fff;
+	--bs-btn-bg: rgb(0, 154, 216);
+	--bs-btn-border-color: rgb(0, 154, 216);
+	--bs-btn-hover-color: #fff;
+	--bs-btn-hover-bg: rgb(0, 126, 175);
+	--bs-btn-hover-border-color: rgb(0, 126, 175);
+	--bs-btn-focus-shadow-rgb: 49, 132, 253;
+	--bs-btn-active-color: #fff;
+	--bs-btn-active-bg: rgb(0, 126, 175);
+	--bs-btn-active-border-color: rgb(0, 126, 175);
+	--bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+	--bs-btn-disabled-color: #fff;
+	--bs-btn-disabled-bg: rgb(0, 154, 216);
+	--bs-btn-disabled-border-color: rgb(0, 154, 216);
+}
+
+.my-card {
+	* {
+		cursor: default;
+	}
+	.header p {
+		color: #bfc1c8;
+		font-size: 14px;
+		line-height: 21px;
+		margin: 0;
+	}
+
+	.content {
+		margin-top: 10px;
+		.place {
+			color: #bfc1c8;
+			font-size: 24px;
+			line-height: 32px;
+			margin: 0;
+		}
+		.weather-text {
+			color: rgb(0, 154, 216);
+			font-size: 21px;
+			line-height: 28px;
+			margin: 0;
+		}
+		.weather-stats div {
+			text-align: center;
+			img {
+				vertical-align: text-bottom;
+			}
+			span {
+				color: #bfc1c8;
+				font-size: 18px;
+				line-height: 24px;
+				margin: 0;
+			}
+		}
+	}
+}
+.card-main-color {
+	.header {
+		background-color: rgb(45, 48, 61);
+	}
+	background-color: rgb(50, 53, 68);
+}
+
+.card-sec-color {
+	.header {
+		background-color: rgb(34, 37, 48);
+	}
+	background-color: rgb(38, 41, 54);
+}
+
+.card-main-layout {
+	.temp {
+		color: white;
+		font-size: 80px;
+		line-height: 100px;
+		margin: 0;
+	}
+	.weather-icon img {
+		width: 100px;
+	}
+}
+
+.card-sec-layout {
+	.temp {
+		color: white;
+		font-size: 40px;
+		line-height: 52px;
+		margin: 0;
+	}
+	.night-temp {
+		color: #bfc1c8;
+		font-size: 20px;
+		line-height: 24px;
+		margin: 0;
+	}
+	.weather-icon img {
+		width: 75px;
+	}
+}
+
+footer {
+	background-color: rgb(38, 41, 54);
+	overflow-y: auto;
+	p {
+		color: #909298;
+		font-size: 14px;
+	}
+}
+
+i.fa-brands {
+	font-size: 15px;
+	line-height: 15px;
+}
+
+footer .links .icon {
+	width: 40px;
+	height: 40px;
+	background-color: rgb(30, 32, 43);
+	i {
+		color: rgb(0, 154, 216);
+	}
+	transition: all 0.3s;
+
+	&:hover {
+		background-color: rgb(0, 154, 216);
+
+		i {
+			color: white;
+		}
+	}
+}
