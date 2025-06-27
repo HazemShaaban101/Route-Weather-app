@@ -25,3 +25,19 @@ async function getLocationWeather(locationId) {
 
 	return responseJson;
 }
+
+// getDayName(): a function that returns the day name based on a date object passed to it
+function getDayName(dateString) {
+	const day = new Date(dateString);
+	const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+	return dayNames[day.getDay()];
+}
+
+// getDayAndMonth(): a function that returns the day and month name based on a date object passed to it
+function getDayAndMonth(dateString) {
+	const date = new Date(dateString);
+	const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+	return date.getDate() + ' ' + months[date.getMonth()];
+}
