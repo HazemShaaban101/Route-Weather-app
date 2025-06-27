@@ -1,6 +1,48 @@
 #logo-img {
 	width: 64px;
-	height: 32px;
+}
+
+.navbar-brand:focus {
+	outline: none;
+}
+
+@media (max-width: 992px) {
+	#logo-img {
+		width: 40px;
+	}
+
+	.navbar-brand div div h1 {
+		font-size: 16px !important;
+	}
+	.navbar-brand div div p {
+		font-size: 12px !important;
+	}
+
+	.navbar ul {
+		background-color: rgb(38, 41, 54);
+		overflow: hidden;
+
+		li {
+			position: relative;
+		}
+
+		li:not(:last-child)::after {
+			content: '';
+			height: 100%;
+			position: absolute;
+			top: 10px;
+			left: -50px;
+			right: -50px;
+			border-bottom: rgb(60, 63, 74) 1px solid;
+		}
+	}
+}
+
+@media (min-width: 992px) {
+	.container {
+		width: 75% !important;
+		margin: auto;
+	}
 }
 
 nav ul li {
@@ -22,20 +64,29 @@ nav ul li {
 }
 
 body {
-	font-family: "Quicksand", sans-serif;
+	font-family: 'Quicksand', sans-serif;
 	background-color: rgb(30, 32, 43);
 
 	* {
 		color: white;
 		--bs-nav-link-color: white !important;
+		transition: all 0.5s;
 	}
 }
 
-@media (min-width: 992px) {
-	.container {
-		width: 75% !important;
-		margin: auto;
+.weather-data {
+	* {
+		transition: all 0.15s;
 	}
+}
+
+.navbar-toggler {
+	border: white 1px solid;
+}
+
+.navbar-toggler:focus {
+	box-shadow: inset 0px 0px 0px 2px rgb(0, 154, 216);
+	border: rgb(0, 154, 216) 1px solid;
 }
 
 input {
@@ -99,13 +150,13 @@ button {
 		.weather-stats div {
 			text-align: center;
 			img {
-				vertical-align: text-bottom;
 			}
 			span {
 				color: #bfc1c8;
 				font-size: 18px;
 				line-height: 24px;
 				margin: 0;
+				vertical-align: middle;
 			}
 		}
 	}
@@ -184,4 +235,8 @@ footer .links .icon {
 			color: white;
 		}
 	}
+}
+
+.loading {
+	background-color: rgb(30, 32, 43);
 }

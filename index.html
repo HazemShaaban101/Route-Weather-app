@@ -11,7 +11,8 @@
 			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
 			rel="stylesheet"
 			integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
-			crossorigin="anonymous" />
+			crossorigin="anonymous"
+		/>
 
 		<!-- link styles -->
 		<link rel="stylesheet" href="./css/styles.css" />
@@ -19,9 +20,7 @@
 		<!-- link fonts from google fonts -->
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap"
-			rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet" />
 
 		<!-- link font awesome -->
 		<link
@@ -29,17 +28,25 @@
 			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
 			integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
 			crossorigin="anonymous"
-			referrerpolicy="no-referrer" />
+			referrerpolicy="no-referrer"
+		/>
 	</head>
 	<body>
+		<div
+			class="loading d-flex justify-content-center align-items-center flex-wrap align-content-center position-fixed top-0 bottom-0 start-0 end-0 z-3"
+			id="loading-screen"
+		>
+			<div class="icon w-100 text-center">
+				<i class="fa-solid fa-sun fa-beat fa-10x" style="color: #ffd43b"></i>
+			</div>
+			<p class="text-center mt-5 fa-5x">Loading...</p>
+		</div>
+
 		<nav class="navbar navbar-expand-lg py-4 bg-transparent">
 			<div class="container">
 				<a class="navbar-brand w-25" href="#"
 					><div class="d-flex column-gap-3 align-items-center">
-						<img
-							src="./images/logo@2x.png"
-							id="logo-img"
-							alt="logo" />
+						<img src="./images/logo@2x.png" id="logo-img" alt="logo" />
 						<div>
 							<h1 class="h4 mb-1 fw-bolder">Weather</h1>
 							<p class="fs-6 mb-0">By Hazem Shaaban</p>
@@ -47,42 +54,31 @@
 					</div></a
 				>
 				<button
-					class="navbar-toggler"
+					class="navbar-toggler rounded-top-5 rounded-bottom-5"
 					type="button"
 					data-bs-toggle="collapse"
 					data-bs-target="#navbarSupportedContent"
 					aria-controls="navbarSupportedContent"
 					aria-expanded="false"
-					aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
+					aria-label="Toggle navigation"
+				>
+					<span class="fa-solid fa-bars"></span>
 				</button>
-				<div
-					class="collapse navbar-collapse"
-					id="navbarSupportedContent">
-					<ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-2">
-						<li
-							class="nav-item rounded-pill d-flex justify-content-center align-items-center">
-							<a
-								class="nav-link active"
-								aria-current="page"
-								href="#"
-								>Home</a
-							>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-3 p-lg-0 p-3 mt-lg-0 mt-3 rounded-5">
+						<li class="nav-item rounded-pill d-flex justify-content-center align-items-center">
+							<a class="nav-link active" aria-current="page" href="#">Home</a>
 						</li>
-						<li
-							class="nav-item rounded-pill d-flex justify-content-center align-items-center">
+						<li class="nav-item rounded-pill d-flex justify-content-center align-items-center">
 							<a class="nav-link" href="#">News</a>
 						</li>
-						<li
-							class="nav-item rounded-pill d-flex justify-content-center align-items-center">
+						<li class="nav-item rounded-pill d-flex justify-content-center align-items-center">
 							<a class="nav-link" href="#">Live Cameras</a>
 						</li>
-						<li
-							class="nav-item rounded-pill d-flex justify-content-center align-items-center">
+						<li class="nav-item rounded-pill d-flex justify-content-center align-items-center">
 							<a class="nav-link" href="#">Photos</a>
 						</li>
-						<li
-							class="nav-item rounded-pill d-flex justify-content-center align-items-center">
+						<li class="nav-item rounded-pill d-flex justify-content-center align-items-center">
 							<a class="nav-link" href="#">Contact Us</a>
 						</li>
 					</ul>
@@ -92,69 +88,42 @@
 
 		<section class="weather-info position-relative">
 			<div class="container py-5">
-				<div
-					class="banner position-absolute top-0 end-0 start-0 overflow-hidden">
-					<img
-						src="./images/banner.png"
-						class="h-100"
-						alt="buildings banner" />
+				<div class="banner position-absolute top-0 end-0 start-0 overflow-hidden">
+					<img src="./images/banner.png" class="h-100" alt="buildings banner" />
 				</div>
 
-				<div
-					class="search position-relative rounded-pill overflow-hidden d-flex align-items-center my-5">
-					<input
-						type="text"
-						id="search-box"
-						class="w-100"
-						placeholder="Find Your Location..." />
-					<button
-						type="button"
-						class="btn btn-terq position-absolute rounded-pill">
-						Search
-					</button>
+				<div class="search position-relative rounded-pill overflow-hidden d-flex align-items-center my-5">
+					<input type="text" id="search-box" class="w-100" placeholder="Find Your Location..." />
+					<button type="button" class="btn btn-terq position-absolute rounded-pill">Search</button>
 				</div>
 
-				<div
-					class="weather-data row rounded-3 my-5 z-2 position-relative overflow-hidden g-0">
+				<div class="weather-data row rounded-3 my-5 z-2 position-relative overflow-hidden g-0" id="weather-data">
 					<div class="col-lg-4 g-lg-0">
 						<div class="my-card card-main-color card-main-layout">
-							<div
-								class="header d-flex justify-content-between align-items-center p-2">
-								<p id="weekday">tuesday</p>
-								<p id="date">24 july</p>
+							<div class="header d-flex justify-content-between align-items-center p-2">
+								<p id="weekday0">tuesday</p>
+								<p id="date0">24 july</p>
 							</div>
-							<div
-								class="content d-flex flex-wrap justify-content-center align-items-center px-4 gap-0 mt-0">
-								<p class="place w-100 mt-4">Cairo</p>
-								<p class="temp w-100 text-center">24.4°C</p>
+							<div class="content d-flex flex-wrap justify-content-center align-items-center px-4 gap-0 mt-0">
+								<p class="place w-100 mt-4" id="place">Cairo</p>
+								<p class="temp w-100 text-center" id="temp0">24.4°C</p>
+								<p class="night-temp w-100 text-center d-none" id="night-temp0">24.4°C</p>
 								<div class="weather-icon w-100 text-center">
-									<img src="./images/113.png" alt="sunny" />
+									<img id="weather-icon0" src="./images/113.png" alt="sunny" />
 								</div>
-								<p class="weather-text w-100 text-center">
-									Sunny
-								</p>
-								<div
-									class="weather-stats d-flex justify-content-evenly gap-3 w-100 my-3">
+								<p class="weather-text w-100 text-center" id="weather-text0">Sunny</p>
+								<div class="weather-stats d-flex justify-content-evenly gap-3 w-100 my-3">
 									<div class="rain-chance">
-										<img
-											src="./images/icon-umberella@2x.png"
-											alt="umberella"
-											width="20px" />
-										<span> 20%</span>
+										<img src="./images/icon-umberella@2x.png" alt="umberella" width="20px" />
+										<span id="rain-chance"> 20%</span>
 									</div>
 									<div class="wind-speed">
-										<img
-											src="./images/icon-wind@2x.png"
-											alt="wind"
-											width="20px" />
-										<span> 18Km/h</span>
+										<img src="./images/icon-wind@2x.png" alt="wind" width="20px" />
+										<span id="wind-speed"> 18Km/h</span>
 									</div>
 									<div class="wind-dir">
-										<img
-											src="./images/icon-compass@2x.png"
-											alt="compass"
-											width="20px" />
-										<span> East</span>
+										<img src="./images/E.png" alt="compass" id="wind-dir-icon" width="30px" />
+										<span id="wind-dir-text"> East</span>
 									</div>
 								</div>
 							</div>
@@ -163,29 +132,17 @@
 					<div class="col-lg-4 g-lg-0">
 						<div class="my-card h-100">
 							<div class="card-sec-color card-sec-layout h-100">
-								<div
-									class="header d-flex justify-content-between align-items-center p-2 w-100">
-									<p id="weekday">tuesday</p>
-									<p id="date">24 july</p>
+								<div class="header d-flex justify-content-between align-items-center p-2 w-100">
+									<p id="weekday1">tuesday</p>
+									<p id="date1">24 july</p>
 								</div>
-								<div
-									class="content d-flex flex-wrap justify-content-center align-items-center px-4 gap-0 mt-0 w-100">
-									<div
-										class="weather-icon w-100 text-center mt-5">
-										<img
-											src="./images/113.png"
-											alt="sunny" />
+								<div class="content d-flex flex-wrap justify-content-center align-items-center px-4 gap-0 mt-0 w-100">
+									<div class="weather-icon w-100 text-center mt-5">
+										<img id="weather-icon1" src="./images/113.png" alt="sunny" />
 									</div>
-									<p class="weather-text w-100 text-center">
-										Sunny
-									</p>
-									<p class="temp w-100 text-center mt-5">
-										24.4°C
-									</p>
-									<p
-										class="night-temp w-100 text-center mb-5">
-										69.4°C
-									</p>
+									<p class="weather-text w-100 text-center" id="weather-text1">Sunny</p>
+									<p class="temp w-100 text-center mt-5" id="temp1">24.4°C</p>
+									<p class="night-temp w-100 text-center mb-5" id="night-temp1">69.4°C</p>
 								</div>
 							</div>
 						</div>
@@ -193,29 +150,17 @@
 					<div class="col-lg-4 g-lg-0">
 						<div class="my-card h-100">
 							<div class="card-main-color card-sec-layout h-100">
-								<div
-									class="header d-flex justify-content-between align-items-center p-2 w-100">
-									<p id="weekday">tuesday</p>
-									<p id="date">24 july</p>
+								<div class="header d-flex justify-content-between align-items-center p-2 w-100">
+									<p id="weekday2">tuesday</p>
+									<p id="date2">24 july</p>
 								</div>
-								<div
-									class="content d-flex flex-wrap justify-content-center align-items-center px-4 gap-0 mt-0 w-100">
-									<div
-										class="weather-icon w-100 text-center mt-5">
-										<img
-											src="./images/113.png"
-											alt="sunny" />
+								<div class="content d-flex flex-wrap justify-content-center align-items-center px-4 gap-0 mt-0 w-100">
+									<div class="weather-icon w-100 text-center mt-5">
+										<img id="weather-icon2" src="./images/113.png" alt="sunny" />
 									</div>
-									<p class="weather-text w-100 text-center">
-										Sunny
-									</p>
-									<p class="temp w-100 text-center mt-5">
-										24.4°C
-									</p>
-									<p
-										class="night-temp w-100 text-center mb-5">
-										69.4°C
-									</p>
+									<p class="weather-text w-100 text-center" id="weather-text2">Sunny</p>
+									<p class="temp w-100 text-center mt-5" id="temp2">24.4°C</p>
+									<p class="night-temp w-100 text-center mb-5" id="night-temp2">69.4°C</p>
 								</div>
 							</div>
 						</div>
@@ -229,52 +174,37 @@
 				<div class="row">
 					<div class="col-lg-7">
 						<div class="mail-bar">
-							<div
-								class="search position-relative rounded-pill overflow-hidden d-flex align-items-center mt-5 mb-4">
-								<input
-									type="text"
-									id="email-box"
-									class="w-100"
-									placeholder="Enter your email to subscribe..." />
-								<button
-									type="button"
-									class="btn btn-terq position-absolute rounded-pill">
-									Subscribe
-								</button>
-							</div>
+							<form action="">
+								<div class="search position-relative rounded-pill overflow-hidden d-flex align-items-center mt-5 mb-4">
+									<input type="email" name="email" required id="email-box" class="w-100" placeholder="Enter your email to subscribe..." />
+									<button type="submit" class="btn btn-terq position-absolute rounded-pill">Subscribe</button>
+								</div>
+							</form>
 						</div>
 					</div>
 					<div class="col-lg-2"></div>
 					<div class="div col-lg-3">
-						<div
-							class="links d-flex justify-content-center mt-lg-5 mt-2 gap-2 h-100">
-							<div
-								class="icon rounded-circle d-flex justify-content-center align-items-center">
+						<div class="links d-flex justify-content-center mt-lg-5 mt-2 gap-2 h-100">
+							<div class="icon rounded-circle d-flex justify-content-center align-items-center">
 								<i class="fa-brands fa-facebook-f fa-fw"></i>
 							</div>
 
-							<div
-								class="icon rounded-circle d-flex justify-content-center align-items-center">
+							<div class="icon rounded-circle d-flex justify-content-center align-items-center">
 								<i class="fa-brands fa-twitter fa-fw"></i>
 							</div>
 
-							<div
-								class="icon rounded-circle d-flex justify-content-center align-items-center">
+							<div class="icon rounded-circle d-flex justify-content-center align-items-center">
 								<i class="fa-brands fa-google-plus-g fa-fw"></i>
 							</div>
 
-							<div
-								class="icon rounded-circle d-flex justify-content-center align-items-center">
+							<div class="icon rounded-circle d-flex justify-content-center align-items-center">
 								<i class="fa-brands fa-pinterest fa-fw"></i>
 							</div>
 						</div>
 					</div>
 				</div>
 
-				<p class="text-center my-4">
-					Copyright 2025 Hazem Shaaban. Designed by Themezy. All
-					rights reserved
-				</p>
+				<p class="text-center my-4">Copyright 2025 Hazem Shaaban. Designed by Themezy. All rights reserved</p>
 			</div>
 		</footer>
 
@@ -282,7 +212,16 @@
 		<script
 			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
 			integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
-			crossorigin="anonymous"></script>
+			crossorigin="anonymous"
+		></script>
+
+		<!-- font awesome js -->
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/fontawesome.min.js"
+			integrity="sha512-j12pXc2gXZL/JZw5Mhi6LC7lkiXL0e2h+9ZWpqhniz0DkDrO01VNlBrG3LkPBn6DgG2b8CDjzJT+lxfocsS1Vw=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		></script>
 
 		<!-- page script -->
 		<script src="./js/index.js"></script>
