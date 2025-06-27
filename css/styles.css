@@ -240,3 +240,47 @@ footer .links .icon {
 .loading {
 	background-color: rgb(30, 32, 43);
 }
+
+/* ----------------------------------Contact Us style---------------------------------------------- */
+.breadcrumb {
+	background-color: rgb(38, 41, 54);
+}
+.breadcrumb-item a {
+	color: #bfc1c8;
+	text-decoration: none;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
+.breadcrumb-item.active {
+	color: white;
+
+	&::before {
+		color: rgb(99, 103, 117);
+	}
+}
+
+.contact-info {
+	background-color: rgb(38, 41, 54);
+}
+.contact-icon {
+	width: 15px;
+}
+
+.contact-form-input {
+	border: #393c48 2px solid;
+
+	&:focus,
+	&:hover {
+		border: rgb(0, 154, 216) 2px solid;
+		outline: none;
+	}
+}
+
+textarea {
+	resize: vertical;
+	min-height: 200px;
+	max-height: 300px;
+	transition: border 0.5s;
+}
