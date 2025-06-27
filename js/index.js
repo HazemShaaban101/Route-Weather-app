@@ -1,3 +1,19 @@
+// initial page settings
+let searchValue = 'Cairo';
+
+// self invoking function to retrieve initial page info and display it
+(async function () {
+	// removeLoadingScreen(): a function that adds display none to loading layer
+	function removeLoadingScreen() {
+		setTimeout(function () {
+			document.getElementById('loading-screen').classList.add('d-none');
+		}, 2000);
+	}
+
+	await displayLocationWeather();
+	removeLoadingScreen();
+})();
+
 // autocomplete location: this function returns the ID of the first location that matches search criteria through
 // the search/autocomplete api
 async function autoCompleteLocation(searchValue) {
