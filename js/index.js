@@ -79,3 +79,15 @@ function updateMainStats(weatherInfo) {
 
 	weatherData.querySelector('#wind-dir-icon').setAttribute('src', `./images/${weatherInfo.current.wind_dir}.png`);
 }
+
+// displayLocationWeather(): the function that runs it all,
+// it is async to make sure everything runs in the wanted order
+async function displayLocationWeather() {
+	let locationId = await autoCompleteLocation(searchValue);
+
+	let weatherInfo = await getLocationWeather(locationId);
+
+	updateCards(weatherInfo);
+
+	updateMainStats(weatherInfo);
+}
