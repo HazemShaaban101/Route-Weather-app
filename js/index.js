@@ -15,3 +15,13 @@ async function autoCompleteLocation(searchValue) {
 	// return the Id of the first location
 	return verifiedLocation[0].id;
 }
+
+// function to get weather data for a location over 3 days using location ID retrieved from search
+async function getLocationWeather(locationId) {
+	let response = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=bcdeff798dac4015a2a94701252606&q=id:${locationId}&days=3&aqi=no&alerts=no`);
+
+	// wait for the response to be extracted into a JSON, then return it
+	let responseJson = await response.json();
+
+	return responseJson;
+}
