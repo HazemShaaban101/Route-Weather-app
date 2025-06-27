@@ -41,3 +41,41 @@ function getDayAndMonth(dateString) {
 
 	return date.getDate() + ' ' + months[date.getMonth()];
 }
+
+// updateCards(): a function that updates the cards with new info from the retrieved JSON
+function updateCards(weatherInfo) {
+	let weatherData = document.querySelector('#weather-data');
+
+	for (let i = 0; i < 3; i++) {
+		weatherData.querySelector(`#weekday${i}`).innerHTML = getDayName(weatherInfo.forecast.forecastday[i].date);
+		weatherData.querySelector(`#date${i}`).innerHTML = getDayAndMonth(weatherInfo.forecast.forecastday[i].date);
+		weatherData.querySelector(`#temp${i}`).innerHTML = weatherInfo.forecast.forecastday[i].day.maxtemp_c + '°C';
+		weatherData.querySelector(`#night-temp${i}`).innerHTML = weatherInfo.forecast.forecastday[i].day.mintemp_c + '°C';
+		// if i = 0, this info belongs to today, so display current condition(will not display night condition otherwise)
+		if (i === 0) {
+			weatherData.querySelector(`#weather-text${i}`).innerHTML = weatherInfo.current.condition.text;
+			weatherData.querySelector(`#weather-icon${i}`).setAttribute('src', `https:${weatherInfo.current.condition.icon}`);
+			// if i != 0, this info belongs to upcoming day, so display info from forcastday object
+		} else {
+			weatherData.querySelector(`#weather-text${i}`).innerHTML = weatherInfo.forecast.forecastday[i].day.condition.text;
+			weatherData.querySelector(`#weather-icon${i}`).setAttribute('src', `https:${weatherInfo.forecast.forecastday[i].day.condition.icon}`);
+		}
+	}
+
+	// set the place to the location displayed
+	weatherData.querySelector('#place').innerHTML =
+		weatherInfo.location.name + ', ' + weatherInfo.location.region ? weatherInfo.location.region : weatherInfo.location.country;
+}
+
+// updateMainStats(): a function to update the main card stats
+function updateMainStats(weatherInfo) {
+	let weatherData = document.querySelector('#weather-data');
+
+	weatherData.querySelector('#rain-chance').innerHTML = ` ${weatherInfo.forecast.forecastday[0].day.daily_chance_of_rain}%`;
+
+	weatherData.querySelector('#wind-speed').innerHTML = ` ${weatherInfo.current.wind_kph}Km/h`;
+
+	weatherData.querySelector('#wind-dir-text').innerHTML = ` ${weatherInfo.current.wind_dir}`;
+
+	weatherData.querySelector('#wind-dir-icon').setAttribute('src', `./images/${weatherInfo.current.wind_dir}.png`);
+}
