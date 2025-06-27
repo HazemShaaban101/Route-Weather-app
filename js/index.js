@@ -14,6 +14,25 @@ let searchValue = 'Cairo';
 	removeLoadingScreen();
 })();
 
+document.querySelector('#search-box').addEventListener('input', function (event) {
+	// get the value of search input box
+	searchValue = event.target.value;
+	let currentValue = searchValue;
+
+	// condition to make default search value is cairo
+	if (event.target.value === '') {
+		searchValue = 'Cairo';
+	}
+
+	// after one second, compare the value registered on input with the value of the input box right now
+	// if value is unchanged, this means the user stopped typing, so we should find weather data for user's search
+	setTimeout(function () {
+		if (currentValue === event.target.value) {
+			displayLocationWeather();
+		}
+	}, 500);
+});
+
 // autocomplete location: this function returns the ID of the first location that matches search criteria through
 // the search/autocomplete api
 async function autoCompleteLocation(searchValue) {
