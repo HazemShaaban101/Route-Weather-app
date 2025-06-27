@@ -280,7 +280,7 @@ footer .links .icon {
 
 textarea {
 	resize: vertical;
-	min-height: 200px;
-	max-height: 300px;
+	min-height: 150px;
+	max-height: 250px;
 	transition: border 0.5s;
 }
