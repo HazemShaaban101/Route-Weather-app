@@ -37,7 +37,7 @@ document.querySelector('#search-box').addEventListener('input', function (event)
 // the search/autocomplete api
 async function autoCompleteLocation(searchValue) {
 	// fetch the first valid location that matches user search
-	let location = await fetch(`http://api.weatherapi.com/v1/search.json?key=bcdeff798dac4015a2a94701252606&q=${searchValue}`);
+	let location = await fetch(`https://api.weatherapi.com/v1/search.json?key=bcdeff798dac4015a2a94701252606&q=${searchValue}`);
 
 	// wait for locations to be extracted into a JSON
 	let verifiedLocation = await location.json();
@@ -53,7 +53,7 @@ async function autoCompleteLocation(searchValue) {
 
 // function to get weather data for a location over 3 days using location ID retrieved from search
 async function getLocationWeather(locationId) {
-	let response = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=bcdeff798dac4015a2a94701252606&q=id:${locationId}&days=3&aqi=no&alerts=no`);
+	let response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=bcdeff798dac4015a2a94701252606&q=id:${locationId}&days=3&aqi=no&alerts=no`);
 
 	// wait for the response to be extracted into a JSON, then return it
 	let responseJson = await response.json();
@@ -98,8 +98,9 @@ function updateCards(weatherInfo) {
 	}
 
 	// set the place to the location displayed
-	weatherData.querySelector('#place').innerHTML =
-		weatherInfo.location.name + ', ' + weatherInfo.location.region ? weatherInfo.location.region : weatherInfo.location.country;
+	weatherData.querySelector('#place').innerHTML = `${weatherInfo.location.name}, ${
+		weatherInfo.location.region ? weatherInfo.location.region : weatherInfo.location.country
+	}`;
 }
 
 // updateMainStats(): a function to update the main card stats
