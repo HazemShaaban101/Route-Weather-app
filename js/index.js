@@ -1,5 +1,5 @@
 // initial page settings
-let searchValue = 'Cairo';
+let searchValue = 'auto:ip';
 
 // self invoking function to retrieve initial page info and display it
 (async function () {
@@ -19,9 +19,9 @@ document.querySelector('#search-box').addEventListener('input', function (event)
 	searchValue = event.target.value;
 	let currentValue = searchValue;
 
-	// condition to make default search value is cairo
+	// condition to make default search value is auto:ip
 	if (event.target.value === '') {
-		searchValue = 'Cairo';
+		searchValue = 'auto:ip';
 	}
 
 	// after one second, compare the value registered on input with the value of the input box right now
@@ -42,10 +42,13 @@ async function autoCompleteLocation(searchValue) {
 	// wait for locations to be extracted into a JSON
 	let verifiedLocation = await location.json();
 
-	// returns cairo as a default if user enters a wrong search criteria
+	// if no locations that match the search criteria are found, return the result of the same
+	// function but with auto:ip as search criteria. this gets the location of current ip address
 	if (verifiedLocation.length === 0) {
-		return 683802;
+		return autoCompleteLocation('auto:ip');
 	}
+
+	console.log(verifiedLocation[0].name);
 
 	// return the Id of the first location
 	return verifiedLocation[0].id;
